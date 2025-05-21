@@ -3,7 +3,7 @@
 \usepackage[greek,english]{babel}
 \usepackage{hyperref}
 
-\usetheme{Madrid} % Καθαρό και απλό θέμα
+\usetheme{Madrid}
 
 \title{Παρουσίαση Project}
 \author{Ομάδα Φοιτητών}
@@ -13,20 +13,14 @@
 
 \frame{\titlepage}
 
-% Slide 2: Εισαγωγή & Motivation
 \begin{frame}{Εισαγωγή \& Motivation}
 \begin{itemize}
     \item Τι αφορά το project;
     \item Ποιο πρόβλημα λύνει;
     \item Γιατί το επιλέξατε;
-    \begin{itemize}
-        \item Ενδιαφέρον
-        \item Προκλήσεις
-    \end{itemize}
 \end{itemize}
 \end{frame}
 
-% Slide 3: Objective & Scope
 \begin{frame}{Objective \& Scope}
 \begin{itemize}
     \item Κύριοι στόχοι του project
@@ -35,100 +29,53 @@
 \end{itemize}
 \end{frame}
 
-% Slide 4-5: System Architecture
 \begin{frame}{System Architecture}
 \begin{itemize}
-    \item Πώς λειτουργεί το σύστημα; (Γενική περιγραφή)
-    \item Κύρια components:
-    \begin{itemize}
-        \item Frontend
-        \item Backend
-        \item Database / Filesystem
-    \end{itemize}
+    \item Πώς λειτουργεί το σύστημα;
+    \item Frontend / Backend / Αρχεία .txt
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Διάγραμμα & Τεχνολογίες}
+\begin{frame}{Τεχνολογίες}
 \begin{itemize}
-    \item Διάγραμμα ροής ή UML (λεκτική περιγραφή αν δεν υπάρχει εικόνα)
-    \item Τεχνολογίες που χρησιμοποιήθηκαν:
-    \begin{itemize}
-        \item C++, React, CSS, httplib
-        \item Επιλογή αρχείων .txt αντί για βάση δεδομένων
-    \end{itemize}
-    \item Λόγοι επιλογής
+    \item C++, React, CSS, JavaScript
+    \item Επιλογή httplib και .txt αντί για βάση
 \end{itemize}
 \end{frame}
 
-% Slide 6-7: Κώδικας & Υλοποίηση
 \begin{frame}{Κώδικας \& Υλοποίηση}
 \begin{itemize}
-    \item Υλοποίηση βασικών λειτουργιών
-    \item Σημαντικοί αλγόριθμοι ή δομές δεδομένων:
-    \begin{itemize}
-        \item File parsing
-        \item Αναζήτηση με username/password
-        \item Υπολογισμοί balance
-    \end{itemize}
+    \item Επεξεργασία αρχείων, authentication, αλλαγή κωδικού
+    \item Ανάγνωση/εγγραφή σε 4 αρχεία (.txt)
 \end{itemize}
 \end{frame}
 
 \begin{frame}{GitHub \& Εκτέλεση}
 \begin{itemize}
-    \item GitHub repository: \url{https://github.com/yourproject}
-    \item Οδηγίες εκτέλεσης:
-    \begin{itemize}
-        \item Εκκίνηση backend server (C++/httplib)
-        \item Εκκίνηση frontend (npm start)
-    \end{itemize}
+    \item \url{https://github.com/your-repo}
+    \item Τρέξε backend (C++) και frontend (npm start)
 \end{itemize}
 \end{frame}
 
-% Slide 8-9: Αποτελέσματα & Demo
 \begin{frame}{Αποτελέσματα \& Demo}
 \begin{itemize}
-    \item Παρουσίαση λειτουργιών:
-    \begin{itemize}
-        \item Login/Signup
-        \item Κατάθεση/Ανάληψη/Υπόλοιπο
-        \item IRIS και αλλαγή κωδικού
-    \end{itemize}
-    \item Ενδεικτική χρήση από χρήστη
-    \item Αν είναι δυνατόν: Live Demo
+    \item Λειτουργικό σύστημα ebanking
+    \item Εύκολη διεπαφή και απόκριση
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Παρατηρήσεις από το Demo}
+\begin{frame}{Σύγκριση με AI Code}
 \begin{itemize}
-    \item Ανταπόκριση διεπαφής
-    \item Αντοχή συστήματος σε εισόδους
-    \item Πιθανά σφάλματα / ευκαιρίες βελτίωσης
+    \item AI (π.χ. ChatGPT) βοήθησε στο debugging
+    \item Διαφορά: AI προτείνει βέλτιστη δομή, αλλά εμείς ξέρουμε τι χρειαζόμαστε
 \end{itemize}
 \end{frame}
 
-% Slide 10-11: Σύγκριση με AI
-\begin{frame}{Σύγκριση με AI-Generated Code}
+\begin{frame}{Συμπεράσματα}
 \begin{itemize}
-    \item Χρησιμοποιήθηκε AI (ChatGPT, Copilot);
-    \item Διαφορές στον δικό μας κώδικα:
-    \begin{itemize}
-        \item Λειτουργικότητα
-        \item Καθαρότητα / Τεκμηρίωση
-    \end{itemize}
-    \item Ήταν πιο αποδοτικός ο AI;
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Συμπεράσματα \& Lessons Learned}
-\begin{itemize}
-    \item Τι μάθαμε από το project;
-    \item Τι θα μπορούσε να βελτιωθεί;
-    \item Μελλοντικές προεκτάσεις:
-    \begin{itemize}
-        \item Προσθήκη βάσης δεδομένων
-        \item Κρυπτογράφηση δεδομένων
-        \item Επέκταση IRIS
-    \end{itemize}
+    \item Μάθαμε βασικές έννοιες OOP
+    \item Πρακτική σύνδεση frontend-backend
+    \item Μελλοντικά: βάση δεδομένων και ασφάλεια
 \end{itemize}
 \end{frame}
 
