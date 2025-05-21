@@ -104,7 +104,7 @@ public:
 
     void IRIS(int fromAcc)
     {
-        // Display available accounts
+
         vector<int> accountNumbers;
         ifstream accountNums("AccountNums.txt");
         int accNum;
@@ -125,7 +125,6 @@ public:
             return;
         }
 
-        // Ask for recipient account number
         int toAcc;
         cout << "Enter recipient account number: ";
         cin >> toAcc;
@@ -137,7 +136,6 @@ public:
             cin >> toAcc;
         }
 
-        // Ask for amount
         double amount;
         cout << "Enter amount to transfer: ";
         cin >> amount;
@@ -149,7 +147,6 @@ public:
             cin >> amount;
         }
 
-        // Now perform the transfer using the existing logic
         ifstream accountBalances("AccountBalance.txt");
         ofstream temporaryFile("TempBalance.txt");
 
@@ -170,7 +167,6 @@ public:
         }
         accountBalances.close();
 
-        // Find indexes
         int fromIndex = -1, toIndex = -1;
         ifstream nums("AccountNums.txt");
         int num, idx = 0;
@@ -211,8 +207,7 @@ public:
         remove("AccountBalance.txt");
         rename("TempBalance.txt", "AccountBalance.txt");
 
-        cout << "Transferred $" << amount << " from account " << fromAcc
-             << " to account " << toAcc << " successfully!" << endl;
+        cout << "Transferred $" << amount << " from account " << fromAcc << " to account " << toAcc << " successfully!" << endl;
     }
 
     void changePassword(int newPassword)
@@ -305,11 +300,205 @@ int main(int argc, char **argv)
         }
     }
 
-    if (answer == 1)
+    do
     {
-        do
+        if (answer == 1)
         {
-            cout << "Please enter your account number: ";
+            do
+            {
+                cout << "Please enter your account number: ";
+                cin >> accountNum;
+                while (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input. Please enter a valid account number." << endl;
+                    cin >> accountNum;
+                }
+                cout << "Please enter your account password: ";
+                cin >> password;
+                while (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input. Please enter a valid password." << endl;
+                    cin >> password;
+                }
+                if (validation(accountNum, password, curAcc) == false)
+                {
+                    cout << "Invalid account number or password. Please try again.\n"
+                         << endl;
+                }
+            } while (validation(accountNum, password, curAcc) == false);
+            if (accountNum == 1 || accountNum == 2)
+            {
+                cout << ("\n");
+                cout << "Login successful!" << endl;
+                cout << "Welcome Admin";
+                curAcc.displayAccount();
+                cout << ("\n");
+                cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
+                cout << ("Give me your option:");
+                cin >> option;
+                while (cin.fail() || (option < 1 || option > 5))
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << (" Invalid option: ") << endl;
+                    cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
+                    cout << (" Please give me your option again: ");
+                    cin >> option;
+                }
+
+                switch (option)
+                {
+                case 1:
+                {
+                    cout << "Enter the amount: ";
+                    cin >> amount;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cin >> amount;
+                    }
+                    curAcc.deposit(amount);
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 2:
+                {
+                    cout << "Enter the amount: ";
+                    cin >> amount;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cin >> amount;
+                    }
+                    curAcc.withdraw(amount);
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 3:
+                {
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 4:
+                {
+                    int fromAccount;
+                    curAcc.IRIS(fromAccount);
+                    break;
+                }
+
+                case 5:
+                {
+                    int newPassword;
+                    cout << ("Enter new password: ");
+                    cin >> newPassword;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid password." << endl;
+                        cin >> newPassword;
+                    }
+                    curAcc.changePassword(newPassword);
+                    break;
+                }
+                }
+            }
+            else
+            {
+                cout << ("\n");
+                cout << "Login successful!" << endl;
+                cout << "Welcome User";
+                curAcc.displayAccount();
+                cout << ("\n");
+                cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
+                cout << ("Give me your option:");
+                cin >> option;
+                while (cin.fail() || (option < 1 || option > 5))
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << (" Invalid option: ") << endl;
+                    cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
+                    cout << (" Please give me your option again: ");
+                    cin >> option;
+                }
+
+                switch (option)
+                {
+                case 1:
+                {
+                    cout << "Enter the amount: ";
+                    cin >> amount;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cin >> amount;
+                    }
+                    curAcc.deposit(amount);
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 2:
+                {
+                    cout << "Enter the amount: ";
+                    cin >> amount;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cin >> amount;
+                    }
+                    curAcc.withdraw(amount);
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 3:
+                {
+                    curAcc.displayBalance();
+                    break;
+                }
+                case 4:
+                {
+                    int fromAccount = accountNum;
+
+                    curAcc.IRIS(fromAccount);
+                    break;
+                }
+
+                case 5:
+                {
+                    int newPassword;
+                    cout << ("Enter new password: ");
+                    cin >> newPassword;
+                    while (cin.fail())
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid password." << endl;
+                        cin >> newPassword;
+                    }
+                    curAcc.changePassword(newPassword);
+                    break;
+                }
+                }
+            }
+        }
+        else
+        {
+
+            cout << "Please create an account" << endl;
+            cout << "Enter your account number: ";
             cin >> accountNum;
             while (cin.fail())
             {
@@ -318,7 +507,50 @@ int main(int argc, char **argv)
                 cout << "Invalid input. Please enter a valid account number." << endl;
                 cin >> accountNum;
             }
-            cout << "Please enter your account password: ";
+            bool hasLetter = false, valid = true;
+            string name;
+            cout << "Enter your name (letters and numbers allowed, but not only numbers): ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, name);
+
+            while (true)
+            {
+
+                valid = true;
+                bool hasLetter = false;
+
+                if (name.empty())
+                {
+                    valid = false;
+                }
+                else
+                {
+                    for (char ch : name)
+                    {
+                        if (!isalnum(ch))
+                        {
+                            valid = false;
+                            break;
+                        }
+                        if (isalpha(ch))
+                        {
+                            hasLetter = true;
+                        }
+                    }
+                    if (!hasLetter)
+                    {
+                        valid = false;
+                    }
+                }
+
+                if (valid)
+                    break;
+
+                cout << "Invalid input. Please enter letters and numbers only, and at least one letter: ";
+                getline(cin, name);
+            }
+
+            cout << "Enter your password: ";
             cin >> password;
             while (cin.fail())
             {
@@ -327,272 +559,53 @@ int main(int argc, char **argv)
                 cout << "Invalid input. Please enter a valid password." << endl;
                 cin >> password;
             }
-            if (validation(accountNum, password, curAcc) == false)
-            {
-                cout << "Invalid account number or password. Please try again.\n"
-                     << endl;
-            }
-        } while (validation(accountNum, password, curAcc) == false);
-        if (accountNum == 1 || accountNum == 2)
-        {
-            cout << ("\n");
-            cout << "Login successful!" << endl;
-            cout << "Welcome Admin";
-            curAcc.displayAccount();
-            cout << ("\n");
-            cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
-            cout << ("Give me your option:");
-            cin >> option;
-            while (cin.fail() || (option < 1 || option > 5))
+            cout << "Enter your balance: ";
+            double balance;
+            cin >> balance;
+            while (cin.fail())
             {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << (" Invalid option: ") << endl;
-                cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
-                cout << (" Please give me your option again: ");
-                cin >> option;
+                cout << "Invalid input. Please enter a valid balance." << endl;
+                cin >> balance;
             }
 
-            switch (option)
-            {
-            case 1:
-            {
-                cout << "Enter the amount: ";
-                cin >> amount;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid amount." << endl;
-                    cin >> amount;
-                }
-                curAcc.deposit(amount);
-                curAcc.displayBalance();
-                break;
-            }
-            case 2:
-            {
-                cout << "Enter the amount: ";
-                cin >> amount;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid amount." << endl;
-                    cin >> amount;
-                }
-                curAcc.withdraw(amount);
-                curAcc.displayBalance();
-                break;
-            }
-            case 3:
-            {
-                curAcc.displayBalance();
-                break;
-            }
-            case 4:
-            {
-                int fromAccount;
-                curAcc.IRIS(fromAccount);
-                break;
-            }
+            BankAccount newAccount(accountNum, name, password, balance);
 
-            case 5:
-            {
-                int newPassword;
-                cout << ("Enter new password: ");
-                cin >> newPassword;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid password." << endl;
-                    cin >> newPassword;
-                }
-                curAcc.changePassword(newPassword);
-                break;
-            }
-            }
-        }
-        else
-        {
-            cout << ("\n");
-            cout << "Login successful!" << endl;
-            cout << "Welcome User";
-            curAcc.displayAccount();
-            cout << ("\n");
-            cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
-            cout << ("Give me your option:");
-            cin >> option;
-            while (cin.fail() || (option < 1 || option > 5))
-            {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << (" Invalid option: ") << endl;
-                cout << (" 1.Deposit\n 2.Withdraw\n 3.View Balance\n 4.IRIS\n 5.Change Password") << endl;
-                cout << (" Please give me your option again: ");
-                cin >> option;
-            }
+            ofstream accountNums("AccountNums.txt", ios::app);
+            ofstream accountNames("AccountNames.txt", ios::app);
+            ofstream accountPasswords("AccountPasswords.txt", ios::app);
+            ofstream accountBalances("AccountBalance.txt", ios::app);
 
-            switch (option)
+            if (accountNums && accountNames && accountPasswords && accountBalances)
             {
-            case 1:
-            {
-                cout << "Enter the amount: ";
-                cin >> amount;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid amount." << endl;
-                    cin >> amount;
-                }
-                curAcc.deposit(amount);
-                curAcc.displayBalance();
-                break;
-            }
-            case 2:
-            {
-                cout << "Enter the amount: ";
-                cin >> amount;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid amount." << endl;
-                    cin >> amount;
-                }
-                curAcc.withdraw(amount);
-                curAcc.displayBalance();
-                break;
-            }
-            case 3:
-            {
-                curAcc.displayBalance();
-                break;
-            }
-            case 4:
-            {
-                int fromAccount = accountNum;
+                accountNums << accountNum << endl;
+                accountNames << name << endl;
+                accountPasswords << password << endl;
+                accountBalances << balance << endl;
 
-                curAcc.IRIS(fromAccount);
-                break;
-            }
-
-            case 5:
-            {
-                int newPassword;
-                cout << ("Enter new password: ");
-                cin >> newPassword;
-                while (cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid password." << endl;
-                    cin >> newPassword;
-                }
-                curAcc.changePassword(newPassword);
-                break;
-            }
-            }
-        }
-    }
-    else
-    {
-
-        cout << "Please create an account" << endl;
-        cout << "Enter your account number: ";
-        cin >> accountNum;
-        while (cin.fail())
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid account number." << endl;
-            cin >> accountNum;
-        }
-        bool hasLetter = false, valid = true;
-        string name;
-        cout << "Enter your name (letters and numbers allowed, but not only numbers): ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        getline(cin, name);
-
-        while (true)
-        {
-
-            valid = true;
-            bool hasLetter = false;
-
-            if (name.empty())
-            {
-                valid = false;
+                cout << "Account created successfully!" << endl;
+                newAccount.displayAccount();
             }
             else
             {
-                for (char ch : name)
-                {
-                    if (!isalnum(ch))
-                    {
-                        valid = false;
-                        break;
-                    }
-                    if (isalpha(ch))
-                    {
-                        hasLetter = true;
-                    }
-                }
-                if (!hasLetter)
-                {
-                    valid = false;
-                }
+                cout << "Error creating account files!" << endl;
             }
-
-            if (valid)
-                break;
-
-            cout << "Invalid input. Please enter letters and numbers only, and at least one letter: ";
-            getline(cin, name);
         }
 
-        cout << "Enter your password: ";
-        cin >> password;
-        while (cin.fail())
+        cout << "Do you want to continue? (1=yes 0=no)" << endl;
+        cin >> answer;
+        while (cin.fail() || (answer != 1 && answer != 0))
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid password." << endl;
-            cin >> password;
+            cout << "Invalid input. Please enter 1 for Yes or 0 for No." << endl;
+            cin >> answer;
         }
-        cout << "Enter your balance: ";
-        double balance;
-        cin >> balance;
-        while (cin.fail())
+        if (answer == 0)
         {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid balance." << endl;
-            cin >> balance;
+            return 0;
         }
 
-        BankAccount newAccount(accountNum, name, password, balance);
-
-        ofstream accountNums("AccountNums.txt", ios::app);
-        ofstream accountNames("AccountNames.txt", ios::app);
-        ofstream accountPasswords("AccountPasswords.txt", ios::app);
-        ofstream accountBalances("AccountBalance.txt", ios::app);
-
-        if (accountNums && accountNames && accountPasswords && accountBalances)
-        {
-            accountNums << accountNum << endl;
-            accountNames << name << endl;
-            accountPasswords << password << endl;
-            accountBalances << balance << endl;
-
-            cout << "Account created successfully!" << endl;
-            newAccount.displayAccount();
-        }
-        else
-        {
-            cout << "Error creating account files!" << endl;
-        }
-    }
+    } while (answer == 1);
 }
