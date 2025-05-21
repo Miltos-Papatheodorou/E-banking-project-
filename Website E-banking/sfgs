@@ -1,10 +1,15 @@
 \documentclass{beamer}
-\usepackage[utf8]{inputenc}
+
+% Επιλογή πολυτονικού ελληνικού (μοντέρνα γραφή)
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
 \usepackage[greek,english]{babel}
-\usepackage{hyperref}
+
+% Ορισμός default font που υποστηρίζει ελληνικά
+\setmainfont{Times New Roman}
 
 \usetheme{Madrid}
-
 \title{Παρουσίαση Project}
 \author{Ομάδα Φοιτητών}
 \date{\today}
@@ -13,69 +18,70 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Εισαγωγή \& Motivation}
+\begin{frame}{Εισαγωγή \& Κίνητρο}
 \begin{itemize}
-    \item Τι αφορά το project;
-    \item Ποιο πρόβλημα λύνει;
-    \item Γιατί το επιλέξατε;
+  \item Τι αφορά το project;
+  \item Ποιο πρόβλημα λύνει;
+  \item Γιατί το επιλέξατε;
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Objective \& Scope}
+\begin{frame}{Στόχοι \& Εμβέλεια}
 \begin{itemize}
-    \item Κύριοι στόχοι του project
-    \item Δυνατότητες και λειτουργίες που υποστηρίζει
-    \item Περιορισμοί (αν υπάρχουν)
+  \item Κύριοι στόχοι του project
+  \item Δυνατότητες και λειτουργίες που υποστηρίζει
+  \item Περιορισμοί (αν υπάρχουν)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{System Architecture}
+\begin{frame}{Αρχιτεκτονική Συστήματος}
 \begin{itemize}
-    \item Πώς λειτουργεί το σύστημα;
-    \item Frontend / Backend / Αρχεία .txt
+  \item Frontend – React
+  \item Backend – C++ / httplib
+  \item Δεδομένα – αρχεία .txt
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Τεχνολογίες}
 \begin{itemize}
-    \item C++, React, CSS, JavaScript
-    \item Επιλογή httplib και .txt αντί για βάση
+  \item React, CSS, C++, httplib
+  \item Χρήση αρχείων αντί για βάση δεδομένων
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Κώδικας \& Υλοποίηση}
 \begin{itemize}
-    \item Επεξεργασία αρχείων, authentication, αλλαγή κωδικού
-    \item Ανάγνωση/εγγραφή σε 4 αρχεία (.txt)
+  \item Login / Signup
+  \item Κατάθεση / Ανάληψη / Υπόλοιπο
+  \item Αλλαγή κωδικού / IRIS
 \end{itemize}
 \end{frame}
 
 \begin{frame}{GitHub \& Εκτέλεση}
 \begin{itemize}
-    \item \url{https://github.com/your-repo}
-    \item Τρέξε backend (C++) και frontend (npm start)
+  \item \url{https://github.com/yourrepo}
+  \item Τρέξιμο backend \& frontend
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Αποτελέσματα \& Demo}
+\begin{frame}{Αποτελέσματα}
 \begin{itemize}
-    \item Λειτουργικό σύστημα ebanking
-    \item Εύκολη διεπαφή και απόκριση
+  \item Η εφαρμογή λειτουργεί σωστά
+  \item Ευχρηστία και σταθερότητα
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Σύγκριση με AI Code}
 \begin{itemize}
-    \item AI (π.χ. ChatGPT) βοήθησε στο debugging
-    \item Διαφορά: AI προτείνει βέλτιστη δομή, αλλά εμείς ξέρουμε τι χρειαζόμαστε
+  \item Συμβουλευτήκαμε το ChatGPT για βοήθεια
+  \item Διαφορές στον σχεδιασμό και ποιότητα
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Συμπεράσματα}
 \begin{itemize}
-    \item Μάθαμε βασικές έννοιες OOP
-    \item Πρακτική σύνδεση frontend-backend
-    \item Μελλοντικά: βάση δεδομένων και ασφάλεια
+  \item Μάθαμε πώς συνδέεται frontend-backend
+  \item Εμπεδώσαμε έννοιες αντικειμενοστραφούς προγραμματισμού
 \end{itemize}
 \end{frame}
 
