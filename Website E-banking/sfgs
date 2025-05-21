@@ -1,83 +1,135 @@
-\documentclass[a4paper,12pt]{article}
-
-% Ελληνικά & Αγγλικά
+\documentclass{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[english,greek]{babel}
+\usepackage[greek,english]{babel}
 \usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{titlesec}
-\geometry{margin=2.5cm}
 
-% Ρύθμιση τίτλων κεφαλαίων
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{1em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{1em}{}
+\usetheme{Madrid} % Καθαρό και απλό θέμα
 
-% Τίτλος - Συμπλήρωσε με τα δικά σου στοιχεία
-\title{Αντικειμενοστραφής Προγραμματισμός\\\large Project Report}
-\author{Ομάδα Φοιτητών \\ Τμήμα Πληροφορικής}
+\title{Παρουσίαση Project}
+\author{Ομάδα Φοιτητών}
 \date{\today}
 
 \begin{document}
 
-\maketitle
-\tableofcontents
-\newpage
+\frame{\titlepage}
 
-\section{Εισαγωγή \& Motivation}
-Το παρόν project ασχολείται με...
+% Slide 2: Εισαγωγή & Motivation
+\begin{frame}{Εισαγωγή \& Motivation}
 \begin{itemize}
     \item Τι αφορά το project;
     \item Ποιο πρόβλημα λύνει;
-    \item Γιατί επιλέξαμε αυτό το αντικείμενο;
+    \item Γιατί το επιλέξατε;
+    \begin{itemize}
+        \item Ενδιαφέρον
+        \item Προκλήσεις
+    \end{itemize}
 \end{itemize}
+\end{frame}
 
-\section{Objective \& Scope}
-Η εργασία μας έχει ως στόχο...
+% Slide 3: Objective & Scope
+\begin{frame}{Objective \& Scope}
 \begin{itemize}
-    \item Ποιοι είναι οι βασικοί στόχοι;
-    \item Ποιες δυνατότητες περιλαμβάνονται;
+    \item Κύριοι στόχοι του project
+    \item Δυνατότητες και λειτουργίες που υποστηρίζει
+    \item Περιορισμοί (αν υπάρχουν)
 \end{itemize}
+\end{frame}
 
-\section{System Architecture}
+% Slide 4-5: System Architecture
+\begin{frame}{System Architecture}
 \begin{itemize}
-    \item Πώς λειτουργεί το σύστημα;
-    \item Ποιες είναι οι βασικές του συνιστώσες;
-    \item Αναφορά διαγράμματος ροής ή UML (προαιρετικά)
+    \item Πώς λειτουργεί το σύστημα; (Γενική περιγραφή)
+    \item Κύρια components:
+    \begin{itemize}
+        \item Frontend
+        \item Backend
+        \item Database / Filesystem
+    \end{itemize}
 \end{itemize}
+\end{frame}
 
-\section{Τεχνολογίες που Χρησιμοποιήθηκαν}
+\begin{frame}{Διάγραμμα & Τεχνολογίες}
 \begin{itemize}
-    \item Ποιες τεχνολογίες χρησιμοποιήθηκαν;
-    \item Γιατί επιλέχθηκαν;
-    \item Βιβλιοθήκες: \texttt{httplib, React, C++, ...}
+    \item Διάγραμμα ροής ή UML (λεκτική περιγραφή αν δεν υπάρχει εικόνα)
+    \item Τεχνολογίες που χρησιμοποιήθηκαν:
+    \begin{itemize}
+        \item C++, React, CSS, httplib
+        \item Επιλογή αρχείων .txt αντί για βάση δεδομένων
+    \end{itemize}
+    \item Λόγοι επιλογής
 \end{itemize}
+\end{frame}
 
-\section{Κώδικας \& Υλοποίηση}
+% Slide 6-7: Κώδικας & Υλοποίηση
+\begin{frame}{Κώδικας \& Υλοποίηση}
 \begin{itemize}
-    \item Πώς υλοποιήθηκε η βασική λειτουργικότητα;
-    \item Υπάρχουν σημαντικοί αλγόριθμοι ή δομές δεδομένων;
-    \item Ανέβασμα κώδικα σε GitHub με οδηγίες
+    \item Υλοποίηση βασικών λειτουργιών
+    \item Σημαντικοί αλγόριθμοι ή δομές δεδομένων:
+    \begin{itemize}
+        \item File parsing
+        \item Αναζήτηση με username/password
+        \item Υπολογισμοί balance
+    \end{itemize}
 \end{itemize}
-\noindent \textbf{GitHub Repository:} \url{https://github.com/your-repo}
+\end{frame}
 
-\section{Αποτελέσματα \& Demo}
+\begin{frame}{GitHub \& Εκτέλεση}
 \begin{itemize}
-    \item Περιγραφή λειτουργίας ή συμπεριφοράς της εφαρμογής
-    \item Live demo (αν υπάρχει)
+    \item GitHub repository: \url{https://github.com/yourproject}
+    \item Οδηγίες εκτέλεσης:
+    \begin{itemize}
+        \item Εκκίνηση backend server (C++/httplib)
+        \item Εκκίνηση frontend (npm start)
+    \end{itemize}
 \end{itemize}
+\end{frame}
 
-\section{Σύγκριση με AI Generated Code}
+% Slide 8-9: Αποτελέσματα & Demo
+\begin{frame}{Αποτελέσματα \& Demo}
 \begin{itemize}
-    \item Χρησιμοποιήθηκε AI (π.χ. ChatGPT, Copilot);
-    \item Διαφορές μεταξύ δικού μας κώδικα και του AI;
-    \item Πιο αποδοτικός ο AI;
+    \item Παρουσίαση λειτουργιών:
+    \begin{itemize}
+        \item Login/Signup
+        \item Κατάθεση/Ανάληψη/Υπόλοιπο
+        \item IRIS και αλλαγή κωδικού
+    \end{itemize}
+    \item Ενδεικτική χρήση από χρήστη
+    \item Αν είναι δυνατόν: Live Demo
 \end{itemize}
+\end{frame}
 
-\section{Συμπεράσματα \& Lessons Learned}
+\begin{frame}{Παρατηρήσεις από το Demo}
+\begin{itemize}
+    \item Ανταπόκριση διεπαφής
+    \item Αντοχή συστήματος σε εισόδους
+    \item Πιθανά σφάλματα / ευκαιρίες βελτίωσης
+\end{itemize}
+\end{frame}
+
+% Slide 10-11: Σύγκριση με AI
+\begin{frame}{Σύγκριση με AI-Generated Code}
+\begin{itemize}
+    \item Χρησιμοποιήθηκε AI (ChatGPT, Copilot);
+    \item Διαφορές στον δικό μας κώδικα:
+    \begin{itemize}
+        \item Λειτουργικότητα
+        \item Καθαρότητα / Τεκμηρίωση
+    \end{itemize}
+    \item Ήταν πιο αποδοτικός ο AI;
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Συμπεράσματα \& Lessons Learned}
 \begin{itemize}
     \item Τι μάθαμε από το project;
     \item Τι θα μπορούσε να βελτιωθεί;
-    \item Μελλοντικές προεκτάσεις του project
+    \item Μελλοντικές προεκτάσεις:
+    \begin{itemize}
+        \item Προσθήκη βάσης δεδομένων
+        \item Κρυπτογράφηση δεδομένων
+        \item Επέκταση IRIS
+    \end{itemize}
 \end{itemize}
+\end{frame}
 
 \end{document}
