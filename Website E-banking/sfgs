@@ -3,7 +3,6 @@
 % Ελληνικά & Αγγλικά
 \usepackage[utf8]{inputenc}
 \usepackage[english,greek]{babel}
-\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{titlesec}
@@ -43,11 +42,8 @@
 \begin{itemize}
     \item Πώς λειτουργεί το σύστημα;
     \item Ποιες είναι οι βασικές του συνιστώσες;
-    \item Διάγραμμα ροής / UML
+    \item Αναφορά διαγράμματος ροής ή UML (προαιρετικά)
 \end{itemize}
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{flowchart.png} % Ανέβασε δική σου εικόνα
-\end{center}
 
 \section{Τεχνολογίες που Χρησιμοποιήθηκαν}
 \begin{itemize}
@@ -66,12 +62,9 @@
 
 \section{Αποτελέσματα \& Demo}
 \begin{itemize}
-    \item Screenshots ή βίντεο από την εφαρμογή
-    \item Live demo αν είναι δυνατόν
+    \item Περιγραφή λειτουργίας ή συμπεριφοράς της εφαρμογής
+    \item Live demo (αν υπάρχει)
 \end{itemize}
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{screenshot.png} % Προαιρετική εικόνα
-\end{center}
 
 \section{Σύγκριση με AI Generated Code}
 \begin{itemize}
