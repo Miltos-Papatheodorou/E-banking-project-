@@ -1,0 +1,167 @@
+\documentclass{beamer}
+
+% Επιλογή πολυτονικού ελληνικού (μοντέρνα γραφή)
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguages{english}
+\setmainfont{GFS Didot}
+\setsansfont{GFS Bodoni}
+\setmonofont{FreeMono} % Μονοδιάστατη γραμματοσειρά με υποστήριξη ελληνικών
+
+
+% Ορισμός default font που υποστηρίζει ελληνικά
+\setmainfont{GFS Didot}
+\setsansfont{GFS Bodoni}
+
+\usetheme{Madrid}
+\title{E-Banking Project}
+\author{Στέλιος Πετρίδης 23060 \\
+Μίλτος Παπαθεοδώρου 23104}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Εισαγωγή \& Motivation}
+\begin{itemize}
+  \item Τι αφορά το project;
+  \vspace{0.2cm}
+   \\ Το project αφορά ένα απλά δομημένο E-Banking System που υλοποιεί τις απολύτως απαραίτητες λειτουργίες μιας προσομοίωσης τράπεζας.
+   \vspace{0.5cm}
+  \item Ποιο πρόβλημα λύνει;
+  \\ - 
+  \vspace{0.5cm}
+  \item Γιατί το επιλέξατε;
+  \vspace{0.2cm}
+  \\ Διότι θεωρούμε οτι καλύπτει το μεγαλύτερο εύρος της ύλης που διδαχτήκαμε.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Στόχοι \& Εμβέλεια}
+\begin{itemize}
+  \item Κύριοι στόχοι του project;
+  \vspace{0.2cm}
+  \\ Ο κύριος στόχος ειναι να εξασκηθούμε στον Αντικειμενοστεφή Προγραμματισμό με λειτουργίες όπως αντικείμενα και κλάσης. Παράλληλα να εμβαθύνουμε στα αρχεία, τις συναρτήσεις και τις βιβλιοθήκες της C++.
+  \vspace{0.5cm}
+  \item Δυνατότητες και λειτουργίες που υποστηρίζει;
+  \vspace{0.2cm}
+  \\ Ο χρήστης έχει την δυνατότητα τόσο να δημιουργεί καινούργιο λογαριασμό οσο και να συνδέεται σε ήδη υπάρχων. Οι δυνατότητες που προσφέρει το project είναι: 1)Ανάληψη, 2)Κατάθεση, 3)Προβολή Υπολοίπου, 4)IRIS(μεταφορά χρημάτων άπο λογαριασμό σε λογαριασμό), 5)Αλλαγή Κωδικού Πρόσβασης.
+  \vspace{0.5cm}
+  \item Περιορισμοί (αν υπάρχουν);
+  \vspace{0.1cm}
+  \\ -
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Αρχιτεκτονική Συστήματος}
+\begin{itemize}
+  \item Πώς λειτουργεί το σύστηµα;(Γενική περιγραφή)
+  \vspace{0.2cm}
+  \\ Το project ζητάει απο τον χρήστη να εισάγει το όνομα χρήστη και τον κωδικό του ετσι ώστε να συνδεθεί στον λογαριασμό του(αν έχει, αλλιώς δημιουργεί). Αφού συνδεθεί, του παρουσιάζει τις δυνατότητες και ανάλογα με τις ανάγκες του επιλέγει.
+  \vspace{0.5cm}
+  \item Κύρια components (Frontend, Backend,Database);
+  \vspace{0.2cm}
+  \\ Χρησιμοποιήσαμε μονο backend, την C++, και χρησιμοποιήσαμε αρχεία txt ως μία εναλλακτική μορφή database.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Αρχιτεκτονική Συστήματος}
+\begin{itemize}
+  \item Διάγραµµα ροής (Flowchart ή UML Diagram);
+   \vspace{0.2cm}
+   \\
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Τεχνολογίες που Χρησιμοποιήθηκαν}
+\begin{itemize}
+  \item Τεχνολογίες που χρησιµοποιήθηκαν και λόγοι επιλογής;
+  \vspace{0.2cm}
+  \\ Χρησιμοποιήθηκε η γλώσσα C++, διότι η ταχύτητα εκτέλεσης είναι υψήλη, υποστηρίζει Αντικειμεναστρεφή Προγραμματισμό και ήταν προαπαιτούμενο. Επίσης χρησιμοποιήσαμε txt files για απλή διαχείριση δεδομένων.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Τεχνολογίες που Χρησιμοποιήθηκαν}
+\begin{itemize}
+  
+  \item Αναφορά βιβλιοθηκών που χρησιμοποιήθηκαν;
+  \vspace{0.2cm}
+  \\#include <iostream>:cin,cout
+\\#include <string>:για χειρισμό κειμένων
+\\#include <fstream>:για αρχεία
+\\#include <limits>:για όρια τιμών τύπων
+\\#include <cctype>:έλεγχο χαρακτήρων
+\\#include <vector>:για δυναμικούς πίνακες
+\\#include <algorithm>:για έτοιμους αλγόριθμους π.χ. ταξινόμηση
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Κώδικας \& Υλοποίηση}
+\begin{itemize}
+  \item Πώς υλοποιήθηκε η βασική λειτουργικότητα;
+  \vspace{0.2cm}
+  \\ Η βασική λειτουργηκότητα υλοποιήθηκε με C++ με κεντρική κλάση το BankAccount και χειρισμός αρχείων txt.
+  \vspace{0.5cm}
+  \item Σηµαντικοί αλγόριθµοι ή δοµές δεδοµένων (π.χ.sorting, searching, OOP design patterns);
+  \vspace{0.2cm}
+  \\ Χρησιμοποιήσαμε κλάση, Linear Search μεσα στα αρχεία txt και ενημέρωση δεδομένων μέσα στα αρχεία txt.
+  \vspace{0.5cm}
+  
+  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Κώδικας \& Υλοποίηση}
+\begin{itemize}
+  \item GitHub repository (Screenshot)→ Link και οδηγίες εκτέλεσης;
+  
+  \\ https://github.com/Miltos-Papatheodorou/E-banking-project-.git
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Αποτελέσματα \& Demo}
+\begin{itemize}
+  \item Θα γίνει live παρουσίαση.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Σύγκριση με AI Code}
+\begin{itemize}
+  \item Χρησιµοποιήσατε AI (π.χ. ChatGPT, Copilot) για κώδικα; 
+  \vspace{0.2cm}
+  \\Χρησιμοποίησαμε ΑΙ με σκοπό να αντλήσουμε ιδέες και να μας διευκολύνει στην κατανόηση ορισμένων λειτουργιών στην γλώσσα C++.
+  \vspace{0.5cm}
+  \item Διαφορές στον κώδικα που γράψατε εσείς vs AI;
+  \vspace{0.2cm}
+  \\ Το ΑΙ χρησιμοποιεί εντολές και μεθόδους τις οποίες δεν έχουμε διδαχτεί. Είναι πιο αποδοτικό και γρήγορο στην υλοποίησή του άλλα, για εμάς, πιο δύσκολο στην κατανόηση. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Συμπεράσματα}
+\begin{itemize}
+  \item Τι µάθατε από το project;
+  \vspace{0.2cm}
+  \\ Στο συγκεκριμένο project μάθαμε πως να διαχειριζόμαστε αρχεία, συναρτήσεις, κλάσεις και ήταν μια πρώτη επαφή με την γλώσσα C++ και την λειτουργεία ενος απλού E-Banking System.
+  \vspace{0.5cm}
+  \item Τι θα µπορούσε να βελτιωθεί;
+  \vspace{0.2cm}
+  \\ Θα μπορούσε ισως να είναι καλύτερα δομημένος ο κώδικας, πιο ευανάγνωστος στον χρήστη με λιγότερες μεταβλητές. Επίσης η main θα μπορούσε να περιέχει λιγότερες εντολές και να λειτουργεί περισσότερο με συναρτήσεις.
+  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Συμπεράσματα}
+\begin{itemize}
+  
+  \item Μελλοντικές προεκτάσεις του project;
+  \vspace{0.2cm}
+  \\ Το συγκεκριμένο project θα μπορούσε να επεκταθεί σε ένα website με δικό του server με περισσότερες δυνατότητες, οπως να τυπώνει αποδείξεις, να αποθηκεύει το ιστορικό των συναλλαγών του χρήστη και ενα καλύτερο database.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
