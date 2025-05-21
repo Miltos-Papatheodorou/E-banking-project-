@@ -1,88 +1,61 @@
-\documentclass{beamer}
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc} % Υποστήριξη UTF-8
+\usepackage[english,greek]{babel} % Υποστήριξη Ελληνικών και Αγγλικών
+\usepackage{geometry} % Ορισμός περιθωρίων
+\geometry{margin=1in}
+\usepackage{graphicx} % Εισαγωγή εικόνων
+\usepackage{hyperref} % Υπερσύνδεσμοι
+\usepackage{listings} % Κώδικας προγραμματισμού
+\usepackage{xcolor} % Χρωματισμός κώδικα
 
-% Επιλογή πολυτονικού ελληνικού (μοντέρνα γραφή)
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{xltxtra}
-\usepackage[greek,english]{babel}
-
-% Ορισμός default font που υποστηρίζει ελληνικά
-\setmainfont{Times New Roman}
-
-\usetheme{Madrid}
-\title{Παρουσίαση Project}
-\author{Ομάδα Φοιτητών}
-\date{\today}
+% Ορισμός περιβάλλοντος για κώδικα
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    frame=single
+}
 
 \begin{document}
 
-\frame{\titlepage}
+\selectlanguage{greek}
+\title{Αναφορά Project}
+\author{Όνομα Ομάδας}
+\date{\today}
 
-\begin{frame}{Εισαγωγή \& Κίνητρο}
-\begin{itemize}
-  \item Τι αφορά το project;
-  \item Ποιο πρόβλημα λύνει;
-  \item Γιατί το επιλέξατε;
-\end{itemize}
-\end{frame}
+\maketitle
 
-\begin{frame}{Στόχοι \& Εμβέλεια}
-\begin{itemize}
-  \item Κύριοι στόχοι του project
-  \item Δυνατότητες και λειτουργίες που υποστηρίζει
-  \item Περιορισμοί (αν υπάρχουν)
-\end{itemize}
-\end{frame}
+\section{Εισαγωγή \& Motivation}
+Το project αφορά...
+\selectlanguage{english}
+The project aims to...
+\selectlanguage{greek}
 
-\begin{frame}{Αρχιτεκτονική Συστήματος}
-\begin{itemize}
-  \item Frontend – React
-  \item Backend – C++ / httplib
-  \item Δεδομένα – αρχεία .txt
-\end{itemize}
-\end{frame}
+\section{Objective \& Scope}
+Οι βασικοί στόχοι είναι...
 
-\begin{frame}{Τεχνολογίες}
-\begin{itemize}
-  \item React, CSS, C++, httplib
-  \item Χρήση αρχείων αντί για βάση δεδομένων
-\end{itemize}
-\end{frame}
+\section{System Architecture}
+Περιγραφή της λειτουργίας του συστήματος...
 
-\begin{frame}{Κώδικας \& Υλοποίηση}
-\begin{itemize}
-  \item Login / Signup
-  \item Κατάθεση / Ανάληψη / Υπόλοιπο
-  \item Αλλαγή κωδικού / IRIS
-\end{itemize}
-\end{frame}
+\section{Τεχνολογίες που χρησιμοποιήθηκαν}
+Χρησιμοποιήθηκαν οι εξής τεχνολογίες...
 
-\begin{frame}{GitHub \& Εκτέλεση}
-\begin{itemize}
-  \item \url{https://github.com/yourrepo}
-  \item Τρέξιμο backend \& frontend
-\end{itemize}
-\end{frame}
+\section{Κώδικας \& Υλοποίηση}
+Παράδειγμα κώδικα:
+\begin{lstlisting}
+def example():
+    print("Hello, world!")
+\end{lstlisting}
 
-\begin{frame}{Αποτελέσματα}
-\begin{itemize}
-  \item Η εφαρμογή λειτουργεί σωστά
-  \item Ευχρηστία και σταθερότητα
-\end{itemize}
-\end{frame}
+\section{Αποτελέσματα \& Demo}
+Στιγμιότυπα από την εφαρμογή...
 
-\begin{frame}{Σύγκριση με AI Code}
-\begin{itemize}
-  \item Συμβουλευτήκαμε το ChatGPT για βοήθεια
-  \item Διαφορές στον σχεδιασμό και ποιότητα
-\end{itemize}
-\end{frame}
+\section{Comparison with AI generated code}
+Ανάλυση της διαφοράς μεταξύ ανθρώπινου και AI κώδικα...
 
-\begin{frame}{Συμπεράσματα}
-\begin{itemize}
-  \item Μάθαμε πώς συνδέεται frontend-backend
-  \item Εμπεδώσαμε έννοιες αντικειμενοστραφούς προγραμματισμού
-\end{itemize}
-\end{frame}
+\section{Συμπεράσματα \& Lessons learned}
+Βασικά μαθήματα από το project...
 
 \end{document}
