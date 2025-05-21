@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt]{article}
+
+% Ελληνικά & Αγγλικά
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{titlesec}
+\geometry{margin=2.5cm}
+
+% Ρύθμιση τίτλων κεφαλαίων
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{1em}{}
+
+% Τίτλος - Συμπλήρωσε με τα δικά σου στοιχεία
+\title{Αντικειμενοστραφής Προγραμματισμός\\\large Project Report}
+\author{Ομάδα Φοιτητών \\ Τμήμα Πληροφορικής}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Εισαγωγή \& Motivation}
+Το παρόν project ασχολείται με...
+\begin{itemize}
+    \item Τι αφορά το project;
+    \item Ποιο πρόβλημα λύνει;
+    \item Γιατί επιλέξαμε αυτό το αντικείμενο;
+\end{itemize}
+
+\section{Objective \& Scope}
+Η εργασία μας έχει ως στόχο...
+\begin{itemize}
+    \item Ποιοι είναι οι βασικοί στόχοι;
+    \item Ποιες δυνατότητες περιλαμβάνονται;
+\end{itemize}
+
+\section{System Architecture}
+\begin{itemize}
+    \item Πώς λειτουργεί το σύστημα;
+    \item Ποιες είναι οι βασικές του συνιστώσες;
+    \item Διάγραμμα ροής / UML
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{flowchart.png} % Ανέβασε δική σου εικόνα
+\end{center}
+
+\section{Τεχνολογίες που Χρησιμοποιήθηκαν}
+\begin{itemize}
+    \item Ποιες τεχνολογίες χρησιμοποιήθηκαν;
+    \item Γιατί επιλέχθηκαν;
+    \item Βιβλιοθήκες: \texttt{httplib, React, C++, ...}
+\end{itemize}
+
+\section{Κώδικας \& Υλοποίηση}
+\begin{itemize}
+    \item Πώς υλοποιήθηκε η βασική λειτουργικότητα;
+    \item Υπάρχουν σημαντικοί αλγόριθμοι ή δομές δεδομένων;
+    \item Ανέβασμα κώδικα σε GitHub με οδηγίες
+\end{itemize}
+\noindent \textbf{GitHub Repository:} \url{https://github.com/your-repo}
+
+\section{Αποτελέσματα \& Demo}
+\begin{itemize}
+    \item Screenshots ή βίντεο από την εφαρμογή
+    \item Live demo αν είναι δυνατόν
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{screenshot.png} % Προαιρετική εικόνα
+\end{center}
+
+\section{Σύγκριση με AI Generated Code}
+\begin{itemize}
+    \item Χρησιμοποιήθηκε AI (π.χ. ChatGPT, Copilot);
+    \item Διαφορές μεταξύ δικού μας κώδικα και του AI;
+    \item Πιο αποδοτικός ο AI;
+\end{itemize}
+
+\section{Συμπεράσματα \& Lessons Learned}
+\begin{itemize}
+    \item Τι μάθαμε από το project;
+    \item Τι θα μπορούσε να βελτιωθεί;
+    \item Μελλοντικές προεκτάσεις του project
+\end{itemize}
+
+\end{document}
