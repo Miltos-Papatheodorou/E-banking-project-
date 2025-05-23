@@ -58,16 +58,13 @@ public:
         ifstream accountNums("AccountNums.txt");
         ifstream accountBalances("AccountBalance.txt");
         ofstream tempBalance("TempBalance.txt");
-
         if (!accountNums || !accountBalances || !tempBalance)
         {
             cout << "Error opening balance files!" << endl;
             return;
         }
-
         vector<int> accountNumbers;
         vector<double> balances;
-
         int num;
         double bal;
         while (accountNums >> num)
@@ -78,16 +75,13 @@ public:
         {
             balances.push_back(bal);
         }
-
         accountNums.close();
         accountBalances.close();
-
         if (accountNumbers.size() != balances.size())
         {
             cout << "Data inconsistency error!" << endl;
             return;
         }
-
         for (size_t i = 0; i < accountNumbers.size(); ++i)
         {
             if (accountNumbers[i] == AccountNum)
@@ -96,15 +90,12 @@ public:
             }
             tempBalance << balances[i] << endl;
         }
-
         tempBalance.close();
         remove("AccountBalance.txt");
         rename("TempBalance.txt", "AccountBalance.txt");
     }
-
     void IRIS(int fromAcc)
     {
-
         vector<int> accountNumbers;
         ifstream accountNums("AccountNums.txt");
         int accNum;
@@ -118,24 +109,21 @@ public:
             }
         }
         accountNums.close();
-
         if (accountNumbers.empty())
         {
             cout << "No other accounts available for transfer.\n";
             return;
         }
-
         int toAcc;
         cout << "Enter recipient account number: ";
         cin >> toAcc;
-        while (cin.fail() || toAcc == fromAcc || std::find(accountNumbers.begin(), accountNumbers.end(), toAcc) == accountNumbers.end())
+        while (cin.fail() || toAcc == fromAcc || find(accountNumbers.begin(), accountNumbers.end(), toAcc) == accountNumbers.end())
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid account number. Please enter a valid recipient account number: ";
             cin >> toAcc;
         }
-
         double amount;
         cout << "Enter amount to transfer: ";
         cin >> amount;
@@ -146,27 +134,22 @@ public:
             cout << "Invalid amount. Please enter a positive number: ";
             cin >> amount;
         }
-
         ifstream accountBalances("AccountBalance.txt");
         ofstream temporaryFile("TempBalance.txt");
-
         if (!accountBalances || !temporaryFile)
         {
             cout << "Error opening balance files!" << endl;
             return;
         }
-
         int lineNumber = 0;
         double balance;
         double fromBalance = -1, toBalance = -1;
         vector<double> balances;
-
         while (accountBalances >> balance)
         {
             balances.push_back(balance);
         }
         accountBalances.close();
-
         int fromIndex = -1, toIndex = -1;
         ifstream nums("AccountNums.txt");
         int num, idx = 0;
@@ -179,22 +162,18 @@ public:
             idx++;
         }
         nums.close();
-
         if (fromIndex == -1 || toIndex == -1)
         {
             cout << "Invalid source or destination account!" << endl;
             return;
         }
-
         fromBalance = balances[fromIndex];
         toBalance = balances[toIndex];
-
         if (fromBalance < amount)
         {
             cout << "Not enough balance to transfer!" << endl;
             return;
         }
-
         balances[fromIndex] -= amount;
         balances[toIndex] += amount;
 
@@ -203,33 +182,28 @@ public:
             temporaryFile << b << endl;
         }
         temporaryFile.close();
-
         remove("AccountBalance.txt");
         rename("TempBalance.txt", "AccountBalance.txt");
-
-        cout << "Transferred $" << amount << " from account " << fromAcc << " to account " << toAcc << " successfully!" << endl;
+        cout << "Transferred " << amount << " from account " << fromAcc << " to account " << toAcc << " successfully" << endl;
     }
 
     void changePassword(int newPassword)
     {
         if (newPassword == password)
         {
-            cout << "Cannot enter the same password." << endl;
+            cout << "Cannot enter the same password" << endl;
             return;
         }
-
         password = newPassword;
-        cout << "Password changed successfully!" << endl;
-
+        cout << "Password changed successfully" << endl;
         ifstream accountPasswords("AccountPasswords.txt");
         ofstream temporaryFile("TempPasswords.txt");
 
         if (!accountPasswords || !temporaryFile)
         {
-            cout << "Error opening files!" << endl;
+            cout << "Error opening files" << endl;
             return;
         }
-
         int lineNumber = 0;
         int currentPass;
         while (accountPasswords >> currentPass)
@@ -244,10 +218,8 @@ public:
             }
             lineNumber++;
         }
-
         accountPasswords.close();
         temporaryFile.close();
-
         remove("AccountPasswords.txt");
         rename("TempPasswords.txt", "AccountPasswords.txt");
     }
@@ -292,7 +264,7 @@ int main(int argc, char **argv)
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter 1 for Yes or 0 for No." << endl;
+            cout << "Invalid input. Please enter 1 for Yes or 0 for No" << endl;
         }
         else
         {
@@ -312,7 +284,7 @@ int main(int argc, char **argv)
                 {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid account number." << endl;
+                    cout << "Invalid input. Please enter a valid account number" << endl;
                     cin >> accountNum;
                 }
                 cout << "Please enter your account password: ";
@@ -321,12 +293,12 @@ int main(int argc, char **argv)
                 {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Please enter a valid password." << endl;
+                    cout << "Invalid input. Please enter a valid password" << endl;
                     cin >> password;
                 }
                 if (validation(accountNum, password, curAcc) == false)
                 {
-                    cout << "Invalid account number or password. Please try again.\n"
+                    cout << "Invalid account number or password. Please try again\n"
                          << endl;
                 }
             } while (validation(accountNum, password, curAcc) == false);
@@ -360,7 +332,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cout << "Invalid input. Please enter a valid amount" << endl;
                         cin >> amount;
                     }
                     curAcc.deposit(amount);
@@ -375,7 +347,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cout << "Invalid input. Please enter a valid amount" << endl;
                         cin >> amount;
                     }
                     curAcc.withdraw(amount);
@@ -403,7 +375,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid password." << endl;
+                        cout << "Invalid input. Please enter a valid password" << endl;
                         cin >> newPassword;
                     }
                     curAcc.changePassword(newPassword);
@@ -441,7 +413,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cout << "Invalid input. Please enter a valid amount" << endl;
                         cin >> amount;
                     }
                     curAcc.deposit(amount);
@@ -456,7 +428,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid amount." << endl;
+                        cout << "Invalid input. Please enter a valid amount" << endl;
                         cin >> amount;
                     }
                     curAcc.withdraw(amount);
@@ -475,7 +447,6 @@ int main(int argc, char **argv)
                     curAcc.IRIS(fromAccount);
                     break;
                 }
-
                 case 5:
                 {
                     int newPassword;
@@ -485,7 +456,7 @@ int main(int argc, char **argv)
                     {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Invalid input. Please enter a valid password." << endl;
+                        cout << "Invalid input. Please enter a valid password" << endl;
                         cin >> newPassword;
                     }
                     curAcc.changePassword(newPassword);
@@ -504,7 +475,7 @@ int main(int argc, char **argv)
             {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Invalid input. Please enter a valid account number." << endl;
+                cout << "Invalid input. Please enter a valid account number" << endl;
                 cin >> accountNum;
             }
             bool hasLetter = false, valid = true;
@@ -542,10 +513,8 @@ int main(int argc, char **argv)
                         valid = false;
                     }
                 }
-
                 if (valid)
                     break;
-
                 cout << "Invalid input. Please enter letters and numbers only, and at least one letter: ";
                 getline(cin, name);
             }
@@ -556,7 +525,7 @@ int main(int argc, char **argv)
             {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Invalid input. Please enter a valid password." << endl;
+                cout << "Invalid input. Please enter a valid password" << endl;
                 cin >> password;
             }
             cout << "Enter your balance: ";
@@ -566,7 +535,7 @@ int main(int argc, char **argv)
             {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Invalid input. Please enter a valid balance." << endl;
+                cout << "Invalid input. Please enter a valid balance" << endl;
                 cin >> balance;
             }
 
@@ -584,12 +553,12 @@ int main(int argc, char **argv)
                 accountPasswords << password << endl;
                 accountBalances << balance << endl;
 
-                cout << "Account created successfully!" << endl;
+                cout << "Account created successfully" << endl;
                 newAccount.displayAccount();
             }
             else
             {
-                cout << "Error creating account files!" << endl;
+                cout << "Error creating account files" << endl;
             }
         }
 
@@ -599,7 +568,7 @@ int main(int argc, char **argv)
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter 1 for Yes or 0 for No." << endl;
+            cout << "Invalid input. Please enter 1 for Yes or 0 for No" << endl;
             cin >> answer;
         }
         if (answer == 0)
